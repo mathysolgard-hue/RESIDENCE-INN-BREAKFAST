@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+/* ----------------------------------------------------------------------
+ * Tokens de marque — Residence Inn by Marriott
+ * Palette inspirée de l'identité historique de l'enseigne (bordeaux &
+ * or profonds) combinée au raffraîchissement récent (typographie sombre
+ * sur fond clair). Ce ne sont pas les codes couleur officiels exacts de
+ * la charte interne : à remplacer par les valeurs Pantone/HEX exactes
+ * si vous y avez accès en tant que membre du personnel.
+ * -------------------------------------------------------------------- */
+@theme inline {
+  --color-cream: #faf6ef;
+  --color-cream-dim: #f2ead9;
+  --color-charcoal: #231f1e;
+  --color-charcoal-soft: #4a4341;
+
+  --color-burgundy: #6e1e32;
+  --color-burgundy-dark: #4e1524;
+  --color-burgundy-light: #8c3a4f;
+
+  --color-gold: #b08d4c;
+  --color-gold-light: #e9dcc3;
+
+  /* Une couleur par créneau, pour le "ticket" de confirmation et les
+     jauges du tableau de bord — voir lib/slots.ts */
+  --color-slot-sunrise: #e3a857;
+  --color-slot-burgundy: #6e1e32;
+  --color-slot-harbor: #2f5d62;
+
+  /* Volontairement hors palette de marque : rouge/vert univoques pour
+     le scanner (OK / STOP), aucune ambiguïté possible avec le bordeaux. */
+  --color-success: #16a34a;
+  --color-danger: #dc2626;
+
+  --font-display: var(--font-fraunces);
+  --font-sans: var(--font-inter);
+}
+
+:root {
+  --background: var(--color-cream);
+  --foreground: var(--color-charcoal);
+}
+
+body {
+  background: var(--color-cream);
+  color: var(--color-charcoal);
+  font-family: var(--font-sans);
+}
+
+/* Focus clavier visible partout (accessibilité), sans anneau par défaut
+   du navigateur qui jure avec la charte. */
+:focus-visible {
+  outline: 2px solid var(--color-burgundy);
+  outline-offset: 2px;
+}
+
+/* Motif de perforation du ticket de confirmation (élément signature) */
+.ticket-perforation {
+  background-image: radial-gradient(
+    circle,
+    var(--color-cream) 3px,
+    transparent 3px
+  );
+  background-size: 14px 14px;
+  background-position: center;
+}
